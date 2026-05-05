@@ -1,15 +1,15 @@
-import havenMark from "../assets/haven-mark.svg";
+import havenLogo from "../assets/web_logo.png";
 
-export function Header({ navigation }) {
+export function Header({ navigation, isLight }) {
   return (
-    <header className="site-header">
+    <header className={`site-header ${isLight ? "site-header--light" : ""}`}>
       <a className="brand" href="#top" aria-label="Haven home">
         <span className="brand__orb">
-          <img className="brand__mark" src={havenMark} alt="" />
+          <img className="brand__mark" src={havenLogo} alt="" />
         </span>
         <span className="brand__lockup">
           <span className="brand__name">HAVEN</span>
-          <span className="brand__note">Quiet safety support</span>
+          <span className="brand__note">A Safe Way Forward</span>
         </span>
       </a>
 

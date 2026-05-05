@@ -5,7 +5,6 @@
 }
 
 .site-header,
-.hero,
 .section,
 .download,
 .site-footer,
@@ -22,6 +21,18 @@
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+  transition: opacity 220ms ease, filter 220ms ease;
+}
+
+.site-header--light {
+  opacity: 0.42;
+  filter: saturate(0.8);
+}
+
+.site-header--light:hover,
+.site-header--light:focus-within {
+  opacity: 1;
+  filter: saturate(1);
 }
 
 .brand {
@@ -34,19 +45,20 @@
 .brand__orb {
   display: grid;
   place-items: center;
-  width: 2rem;
-  height: 2rem;
+  width: 2.35rem;
+  height: 2.35rem;
   border: 1px solid var(--border);
   border-radius: 999px;
   background: var(--surface);
   box-shadow: var(--shadow-soft);
   backdrop-filter: blur(18px);
+  overflow: hidden;
 }
 
 .brand__mark {
-  width: 0.8rem;
-  height: 0.8rem;
-  filter: drop-shadow(0 0 0.4rem rgba(169, 191, 216, 0.18));
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .brand__lockup {
@@ -124,6 +136,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
   min-height: 100svh;
   padding: 7.5rem 0 6.5rem;
   text-align: center;
@@ -248,14 +261,16 @@
 
 .hero__scroll {
   position: absolute;
-  left: 50%;
+  left: 0;
+  right: 0;
   bottom: 2rem;
   z-index: 1;
   display: inline-flex;
   flex-direction: column;
   align-items: center;
   gap: 0.45rem;
-  transform: translateX(-50%);
+  width: max-content;
+  margin-inline: auto;
   color: var(--muted);
   font-size: 0.76rem;
   letter-spacing: 0.12em;
@@ -460,23 +475,56 @@
 }
 
 .privacy-panel {
+  position: relative;
   padding: 1.35rem 1.2rem;
   border-radius: 1.4rem;
-  transition: background 220ms ease, transform 220ms ease;
+  overflow: hidden;
+  transition:
+    background 260ms ease,
+    box-shadow 260ms ease,
+    opacity 260ms ease,
+    transform 260ms ease;
 }
 
-.privacy-panel:hover {
-  transform: translateX(4px);
+.privacy-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background:
+    linear-gradient(135deg, rgba(169, 191, 216, 0.16), rgba(199, 192, 221, 0.18)),
+    var(--surface);
+  opacity: 0;
+  transform: scale(0.98);
+  transition: opacity 260ms ease, transform 260ms ease;
+}
+
+.privacy-panel:hover,
+.privacy-panel:focus-within {
+  transform: translateX(6px);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+
+.privacy-panel:hover::before,
+.privacy-panel:focus-within::before {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .privacy-panel + .privacy-panel {
   border-top: 1px solid var(--border);
 }
 
-.privacy-panel--accent {
-  background:
-    linear-gradient(135deg, rgba(169, 191, 216, 0.16), rgba(199, 192, 221, 0.18)),
-    var(--surface);
+.privacy-panel--accent::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.privacy-panels:has(.privacy-panel:not(.privacy-panel--accent):hover) .privacy-panel--accent::before,
+.privacy-panels:has(.privacy-panel:not(.privacy-panel--accent):focus-within) .privacy-panel--accent::before {
+  opacity: 0;
+  transform: scale(0.98);
 }
 
 .privacy-panel span {
@@ -538,10 +586,13 @@
 
 .toast {
   position: fixed;
-  left: 50%;
+  left: 0;
+  right: 0;
   bottom: 1.4rem;
   z-index: 40;
-  transform: translateX(-50%);
+  width: max-content;
+  max-width: calc(100% - 2rem);
+  margin-inline: auto;
   padding: 0.95rem 1.2rem;
   border-radius: 999px;
   background: rgba(47, 56, 60, 0.94);
@@ -584,7 +635,6 @@
 
 @media (max-width: 760px) {
   .site-header,
-  .hero,
   .section,
   .download,
   .site-footer,

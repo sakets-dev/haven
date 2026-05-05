@@ -6,7 +6,7 @@ export const siteContent = {
   ],
   hero: {
     brand: "HAVEN",
-    eyebrow: "Quiet safety support",
+    eyebrow: "A Safe Way Forward",
     title: "A softer way to reach help.",
     description:
       "Fast access, trusted contacts, and calm support in one discreet space.",

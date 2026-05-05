@@ -15,6 +15,7 @@ const DOWNLOAD_MESSAGE = "Haven downloads will open here soon.";
 
 function App() {
   const [toastMessage, setToastMessage] = useState("");
+  const [isHeaderLight, setIsHeaderLight] = useState(false);
 
   useEffect(() => {
     if (!toastMessage) {
@@ -28,13 +29,24 @@ function App() {
     return () => window.clearTimeout(timeoutId);
   }, [toastMessage]);
 
+  useEffect(() => {
+    const updateHeaderState = () => {
+      setIsHeaderLight(window.scrollY > 80);
+    };
+
+    updateHeaderState();
+    window.addEventListener("scroll", updateHeaderState, { passive: true });
+
+    return () => window.removeEventListener("scroll", updateHeaderState);
+  }, []);
+
   const showComingSoon = () => {
     setToastMessage(DOWNLOAD_MESSAGE);
   };
 
   return (
     <div className="page-shell">
-      <Header navigation={siteContent.navigation} />
+      <Header navigation={siteContent.navigation} isLight={isHeaderLight} />
 
       <main id="top">
         <HeroSection
