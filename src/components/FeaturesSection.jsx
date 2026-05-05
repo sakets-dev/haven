@@ -28,24 +28,26 @@ export function FeaturesSection({ items }) {
         description="Quick help in urgent moments, with space for planning, records, support, and safer next steps."
       />
 
-      <div className="feature-grid">
+      <div className="feature-list" aria-label="Haven features">
         {items.map((item, index) => {
           const Icon = icons[index] ?? BellRing;
 
           return (
             <motion.article
-              className="feature-card"
+              className="feature-item"
               key={item.title}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.25 }}
               transition={{ duration: 0.6, delay: index * 0.06 }}
             >
-              <div className="feature-card__top">
-                <Icon className="feature-card__icon" size={20} />
+              <div className="feature-item__icon">
+                <Icon className="feature-item__icon-svg" size={20} />
               </div>
-              <h3>{item.title}</h3>
-              <p>{item.description}</p>
+              <div>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </div>
             </motion.article>
           );
         })}

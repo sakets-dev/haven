@@ -12,6 +12,32 @@ export function HeroSection({ content, tags, onDownloadClick }) {
   return (
     <MotionSection className="hero">
       <motion.div
+        className="hero__texture"
+        animate={{
+          backgroundPosition: ["0% 0%, 50% 50%", "100% 40%, 10% 80%", "0% 0%, 50% 50%"],
+          opacity: [0.3, 0.48, 0.3],
+        }}
+        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="hero__aurora"
+        animate={{
+          x: ["-4%", "4%", "-2%", "-4%"],
+          y: ["0%", "3%", "-2%", "0%"],
+          rotate: [0, 2, -1, 0],
+          scale: [1, 1.05, 1.02, 1],
+        }}
+        transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="hero__ripple"
+        animate={{
+          backgroundPosition: ["0% 0%", "60% 100%", "0% 0%"],
+          opacity: [0.18, 0.34, 0.18],
+        }}
+        transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
         className="hero__veil"
         animate={{ rotate: [0, 3, 0], scale: [1, 1.04, 1], x: [0, 10, 0] }}
         transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}

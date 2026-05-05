@@ -65,22 +65,23 @@ a {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #171b1c;
-    --bg-deep: #111415;
-    --text: #f2ece3;
-    --muted: #b6bbb5;
-    --surface: rgba(24, 28, 29, 0.62);
-    --surface-strong: rgba(24, 28, 29, 0.8);
-    --border: rgba(255, 255, 255, 0.08);
-    --shadow: 0 24px 60px rgba(0, 0, 0, 0.24);
-    --shadow-soft: 0 14px 30px rgba(0, 0, 0, 0.22);
+    --bg: #1b2021;
+    --bg-deep: #15191a;
+    --text: #f7f1e8;
+    --muted: #c7cbc5;
+    --sage-deep: #9fb39a;
+    --surface: rgba(31, 36, 37, 0.68);
+    --surface-strong: rgba(35, 40, 41, 0.84);
+    --border: rgba(255, 255, 255, 0.105);
+    --shadow: 0 24px 60px rgba(0, 0, 0, 0.2);
+    --shadow-soft: 0 14px 30px rgba(0, 0, 0, 0.18);
   }
 
   body {
     background:
-      radial-gradient(circle at top left, rgba(109, 121, 137, 0.26), transparent 28%),
-      radial-gradient(circle at 82% 14%, rgba(100, 116, 105, 0.18), transparent 24%),
-      linear-gradient(180deg, #1b2022 0%, var(--bg) 44%, var(--bg-deep) 100%);
+      radial-gradient(circle at top left, rgba(126, 139, 154, 0.34), transparent 30%),
+      radial-gradient(circle at 82% 14%, rgba(123, 139, 126, 0.26), transparent 25%),
+      linear-gradient(180deg, #202629 0%, var(--bg) 44%, var(--bg-deep) 100%);
   }
 }
 
