@@ -1,0 +1,32 @@
+{
+  "name": "haven",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint ."
+  },
+  "keywords": [
+    "haven",
+    "react",
+    "vite",
+    "landing-page"
+  ],
+  "author": "",
+  "license": "ISC",
+  "description": "Landing page for Haven, a discreet domestic abuse support app concept.",
+  "dependencies": {
+    "framer-motion": "^12.38.0",
+    "lucide-react": "^1.14.0",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.0.1",
+    "eslint": "^10.3.0",
+    "vite": "^8.0.10"
+  }
+}

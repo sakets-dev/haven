@@ -1,0 +1,100 @@
+:root {
+  color-scheme: light dark;
+  --bg: #f6f0e8;
+  --bg-deep: #ece3d8;
+  --text: #252824;
+  --muted: #6b706a;
+  --sage: #b9c6b2;
+  --sage-deep: #7c9277;
+  --blue: #aebfd5;
+  --lavender: #cdc5df;
+  --surface: rgba(255, 251, 246, 0.58);
+  --surface-strong: rgba(255, 251, 246, 0.76);
+  --border: rgba(84, 94, 90, 0.1);
+  --shadow: 0 22px 50px rgba(70, 74, 72, 0.1);
+  --shadow-soft: 0 12px 30px rgba(70, 74, 72, 0.08);
+  --radius-lg: 32px;
+  --max-width: 1180px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Avenir Next", "Segoe UI", "Trebuchet MS", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(205, 197, 223, 0.42), transparent 28%),
+    radial-gradient(circle at 82% 14%, rgba(174, 191, 213, 0.28), transparent 22%),
+    linear-gradient(180deg, #faf6f1 0%, var(--bg) 44%, var(--bg-deep) 100%);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 20% 18%, rgba(255, 255, 255, 0.65), transparent 18%),
+    radial-gradient(circle at 78% 8%, rgba(255, 255, 255, 0.42), transparent 14%);
+  opacity: 0.9;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #171b1c;
+    --bg-deep: #111415;
+    --text: #f2ece3;
+    --muted: #b6bbb5;
+    --surface: rgba(24, 28, 29, 0.62);
+    --surface-strong: rgba(24, 28, 29, 0.8);
+    --border: rgba(255, 255, 255, 0.08);
+    --shadow: 0 24px 60px rgba(0, 0, 0, 0.24);
+    --shadow-soft: 0 14px 30px rgba(0, 0, 0, 0.22);
+  }
+
+  body {
+    background:
+      radial-gradient(circle at top left, rgba(109, 121, 137, 0.26), transparent 28%),
+      radial-gradient(circle at 82% 14%, rgba(100, 116, 105, 0.18), transparent 24%),
+      linear-gradient(180deg, #1b2022 0%, var(--bg) 44%, var(--bg-deep) 100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+}
